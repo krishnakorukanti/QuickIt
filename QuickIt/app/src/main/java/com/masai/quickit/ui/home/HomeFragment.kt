@@ -1,37 +1,49 @@
 package com.masai.quickit.ui.home
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.ViewModelProvider
 import com.masai.quickit.R
-import com.masai.quickit.room_database.DetailsEntity
-import com.masai.quickit.view_model.DetailsAdapter
-import com.masai.quickit.view_model.DetailsViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.masai.quickit.databinding.FragmentHomeBinding
+import com.masai.quickit.ui.dashboard.DashboardViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
-      lateinit var detailsAdapter: DetailsAdapter
-      val detailList:MutableList<DetailsEntity> = mutableListOf()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val viewModel=ViewModelProviders.of(this).get(DetailsViewModel::class.java)
-        val linearLayoutManager=LinearLayoutManager(context)
-         detailsAdapter=DetailsAdapter(detailList)
-        rvRecyclerView.layoutManager=linearLayoutManager
-        rvRecyclerView.adapter=detailsAdapter
 
-        viewModel.getAllDetails.observe(viewLifecycleOwner, Observer {
-            detailList.addAll(it)
-            detailsAdapter.notifyDataSetChanged()
-        })
-        val detailsEntity=DetailsEntity("dhanshree","http/sdf/dfg","application")
-        viewModel.addDetails(detailsEntity)
+  //  private lateinit var homeViewModel: HomeViewModel
+    private var _binding: FragmentHomeBinding? = null
 
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+//        homeViewModel =
+//            ViewModelProvider(this).get(HomeViewModel::class.java)
+
+//        homeViewModel.insertDetailsToDB("sample","sample")
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val textView: TextView = binding.textHome
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+        return root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 
 }
