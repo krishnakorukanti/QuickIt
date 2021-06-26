@@ -3,25 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/detailsText"
+            android:id="@+id/dashboardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:padding="10dp"
-            android:text="sample"
+
+            android:text="dashboard"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <com.overflowarchives.linkpreview.TelegramPreview
-            android:id="@+id/link_preview"
+            android:id="@+id/dashboard_link_preview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="bottom|center"/>

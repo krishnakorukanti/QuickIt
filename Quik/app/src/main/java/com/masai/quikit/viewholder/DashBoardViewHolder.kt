@@ -1,6 +1,5 @@
 package com.masai.quikit.viewholder
 
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,14 +10,13 @@ import com.overflowarchives.linkpreview.TelegramPreview
 import com.overflowarchives.linkpreview.ViewListener
 
 
-class DetailsViewHolder(
+class DashBoardViewHolder(
     private val view: View,
-    private val listener: RecyclerClickListener
 ) : RecyclerView.ViewHolder(view) {
-    private  val TAG = "DetailsViewHolder"
+
     fun setData(details: Details){
         view.apply {
-           val textView : TextView = findViewById(R.id.detailsText)
+            val textView : TextView = findViewById(R.id.dashboardText)
 
             textView.text = details.content
 
@@ -26,14 +24,14 @@ class DetailsViewHolder(
 
 
 
-            val preview : TelegramPreview = findViewById(R.id.link_preview)
+            val preview : TelegramPreview = findViewById(R.id.dashboard_link_preview)
             preview.loadUrl(details.content,object : ViewListener {
                 override fun onFailedToLoad(e: Exception?) {
 
                 }
 
                 override fun onPreviewSuccess(status: Boolean) {
-                textView.visibility = View.GONE
+                    textView.visibility = View.GONE
                 }
 
             })
