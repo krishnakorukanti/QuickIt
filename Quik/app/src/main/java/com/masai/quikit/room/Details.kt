@@ -11,8 +11,8 @@ data class Details(
     var detailsId : Int =0,
 
     @ColumnInfo(name = "Content")
-    val content : String,
+    val content : String?=null,
 
     @ColumnInfo(name = "image")
-    val image : Uri
+    val image : Uri? =null
 )

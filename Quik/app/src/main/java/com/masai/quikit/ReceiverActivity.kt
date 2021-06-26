@@ -35,7 +35,7 @@ class ReceiverActivity : AppCompatActivity() {
     private fun handleSendText(intent: Intent) {
         intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
             // Update UI to reflect text being shared
-            homeViewModel.insertDetailsToDB(it)
+            homeViewModel.insertDetailsToDB(it,null)
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
 
@@ -44,7 +44,10 @@ class ReceiverActivity : AppCompatActivity() {
 
     private fun handleSendImage(intent: Intent) {
         (intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as? Uri)?.let {
-            // Update UI to reflect image being shared
+          homeViewModel.insertDetailsToDB(null,it)
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+
 
         }
     }
