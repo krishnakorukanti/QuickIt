@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ReceiverActivity">
+    android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:id="@+id/imageURLEmd"
+        />
+    <com.nguyencse.URLEmbeddedView
+        android:id="@+id/uev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Title"
+        android:layout_below="@id/imageURLEmd"
+        app:description="Description"
+        app:host="abc.com"
+        app:favor="@drawable/ic_url"
+        app:thumbnail="@drawable/ic_url"/>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>
