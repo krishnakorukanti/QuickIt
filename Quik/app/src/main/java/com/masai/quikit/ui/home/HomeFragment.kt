@@ -64,6 +64,7 @@ class HomeFragment : Fragment(),RecyclerClickListener {
         val linearLayoutManager = LinearLayoutManager(activity)
         val recycler : RecyclerView = binding.recyclerHome
         recycler.layoutManager=linearLayoutManager
+
         recycler.adapter = detailsAdapter
     }
 
