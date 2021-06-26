@@ -13,6 +13,4 @@ data class Details(
     @ColumnInfo(name = "Content")
     val content : String,
 
-    @ColumnInfo(name = "image")
-    val image : Uri
 )

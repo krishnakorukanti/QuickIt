@@ -51,10 +51,10 @@ class HomeFragment : Fragment(),RecyclerClickListener {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         setRecycler()
         return root
     }

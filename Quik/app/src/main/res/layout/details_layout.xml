@@ -13,9 +13,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="10dp"
             android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="sample"
             android:textColor="@color/black"
-            android:text="sample" />
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
+
+        <com.overflowarchives.linkpreview.TelegramPreview
+            android:id="@+id/link_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|center"/>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
