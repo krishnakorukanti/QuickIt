@@ -38,15 +38,15 @@ class HomeFragment : Fragment(),RecyclerClickListener {
     ): View? {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-//        for (i in 1..10)
-//        homeViewModel.insertDetailsToDB(content = "Check $i")
-//
-//        homeViewModel.getAllDetails().observe(viewLifecycleOwner,{
-//            it?.let {
-//                detailsList=it
-//                detailsAdapter.updateDetails(detailsList)
-//            }
-//        })
+        for (i in 1..10)
+        homeViewModel.insertDetailsToDB(content = "Check $i")
+
+        homeViewModel.getAllDetails().observe(viewLifecycleOwner,{
+            it?.let {
+                detailsList=it
+                detailsAdapter.updateDetails(detailsList)
+            }
+        })
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -55,7 +55,7 @@ class HomeFragment : Fragment(),RecyclerClickListener {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-      //  setRecycler()
+        setRecycler()
         return root
     }
 
