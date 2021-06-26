@@ -1,5 +1,6 @@
 package com.masai.quikit.room
 
+import android.net.Uri
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,5 +11,8 @@ data class Details(
     var detailsId : Int =0,
 
     @ColumnInfo(name = "Content")
-    val content : String
+    val content : String,
+
+    @ColumnInfo(name = "image")
+    val image : Uri
 )

@@ -5,11 +5,16 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import androidx.lifecycle.ViewModelProvider
+import com.masai.quikit.ui.home.HomeViewModel
 
 class ReceiverActivity : AppCompatActivity() {
+    private lateinit var homeViewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reciever)
+        homeViewModel =
+            ViewModelProvider(this).get(HomeViewModel::class.java)
         when {
             intent?.action == Intent.ACTION_SEND -> {
                 if ("text/plain" == intent.type) {
@@ -30,6 +35,9 @@ class ReceiverActivity : AppCompatActivity() {
     private fun handleSendText(intent: Intent) {
         intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
             // Update UI to reflect text being shared
+            homeViewModel.insertDetailsToDB(it)
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
 
         }
     }

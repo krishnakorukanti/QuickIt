@@ -38,8 +38,8 @@ class HomeFragment : Fragment(),RecyclerClickListener {
     ): View? {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-        for (i in 1..10)
-        homeViewModel.insertDetailsToDB(content = "Check $i")
+//        for (i in 1..10)
+//        homeViewModel.insertDetailsToDB(content = "Check $i")
 
         homeViewModel.getAllDetails().observe(viewLifecycleOwner,{
             it?.let {
