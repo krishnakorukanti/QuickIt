@@ -15,10 +15,11 @@ interface DetailsDao {
     @Query("SELECT * FROM detailstable order by detailsId DESC")
     fun getAllDetails(): LiveData<List<Details>>
 
-    @Delete
-    fun deleteDetail(details: Details)
+    @Query("DELETE FROM detailstable WHERE detailsId= :delId")
+    fun deleteDetails(delId:Int)
 
-    @Query("SELECT * FROM detailstable WHERE content LIKE :name")
+
+    @Query("SELECT * FROM detailstable WHERE content LIKE '%' || :name || '%'")
     fun getData(name: String?): LiveData<List<Details>>
 
 

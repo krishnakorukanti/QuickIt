@@ -7,10 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "DetailsTable")
 data class Details(
-    @PrimaryKey(autoGenerate = true)
-    var detailsId : Int =0,
 
-    @ColumnInfo(name = "Content")
+
+    @ColumnInfo(name = "content")
     val content : String?=null,
 
     @ColumnInfo(name="flag")
@@ -21,7 +20,8 @@ data class Details(
 //    @ColumnInfo(name = "image")
 //    val image : Uri? =null
 ){
-
+    @PrimaryKey(autoGenerate = true)
+    var detailsId : Int =0
 }
 
 
