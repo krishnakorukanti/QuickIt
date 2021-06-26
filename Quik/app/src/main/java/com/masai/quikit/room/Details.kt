@@ -15,4 +15,6 @@ data class Details(
 
     @ColumnInfo(name = "image")
     val image : Uri? =null
-)
+){
+
+}

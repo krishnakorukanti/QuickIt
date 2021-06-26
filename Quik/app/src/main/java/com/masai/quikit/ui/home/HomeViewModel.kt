@@ -20,11 +20,12 @@ class HomeViewModel(application : Application) :AndroidViewModel(application) {
     val text: LiveData<String> = _text
     //private val context = getApplication<Application>().applicationContext
 
-    fun insertDetailsToDB(content : String?,imageUrl:Uri?){
+    fun insertDetailsToDB(content : String?=null,image: Uri?=null){
         CoroutineScope(Dispatchers.IO).launch {
-            DetailsDatabase.getInstance(getApplication()).detailsDao.insertDetails(Details(content = content,image = imageUrl))
+            DetailsDatabase.getInstance(getApplication()).detailsDao.insertDetails(Details(content = content,image = image))
         }
     }
+
 
     fun getAllDetails(): LiveData<List<Details>>{
         return DetailsDatabase.getInstance(getApplication()).detailsDao.getAllDetails()

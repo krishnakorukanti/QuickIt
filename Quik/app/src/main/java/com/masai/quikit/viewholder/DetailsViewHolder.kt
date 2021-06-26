@@ -18,7 +18,7 @@ class DetailsViewHolder(
            val textView : TextView = findViewById(R.id.detailsText)
 
             textView.text = details.content
-            Log.d(TAG, "setData:"+details.image)
+//            Log.d(TAG, "setData:"+details.image)
         }
     }
 }
