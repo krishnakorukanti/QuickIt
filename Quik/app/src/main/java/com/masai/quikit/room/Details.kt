@@ -11,6 +11,18 @@ data class Details(
     var detailsId : Int =0,
 
     @ColumnInfo(name = "Content")
-    val content : String,
+    val content : String?=null,
 
-)
+    @ColumnInfo(name="flag")
+    val flag: Boolean =false
+
+
+//
+//    @ColumnInfo(name = "image")
+//    val image : Uri? =null
+){
+
+}
+
+
+

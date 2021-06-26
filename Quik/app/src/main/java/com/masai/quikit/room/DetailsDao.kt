@@ -17,4 +17,10 @@ interface DetailsDao {
 
     @Delete
     fun deleteDetail(details: Details)
+
+    @Query("SELECT * FROM detailstable WHERE content LIKE :name")
+    fun getData(name: String?): LiveData<List<Details>>
+
+
+
 }

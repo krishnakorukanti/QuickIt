@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.masai.quikit.ui.home.HomeViewModel
 
@@ -35,6 +36,7 @@ class ReceiverActivity : AppCompatActivity() {
     private fun handleSendText(intent: Intent) {
         intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
             // Update UI to reflect text being shared
+            Log.d("TAG", "text: "+it)
             homeViewModel.insertDetailsToDB(it)
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
@@ -44,7 +46,11 @@ class ReceiverActivity : AppCompatActivity() {
 
     private fun handleSendImage(intent: Intent) {
         (intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as? Uri)?.let {
-            // Update UI to reflect image being shared
+            Log.d("TAG", "handleSendImage: "+it)
+//
+//            val intent = Intent(this,MainActivity::class.java)
+//            startActivity(intent)
+//
 
         }
     }
