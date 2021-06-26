@@ -12,7 +12,7 @@ interface DetailsDao {
     @Insert
     suspend fun insertDetails(details: Details)
 
-    @Query("Select * From DetailsTable")
+    @Query("SELECT * FROM detailstable order by detailsId DESC")
     fun getAllDetails(): LiveData<List<Details>>
 
     @Delete
