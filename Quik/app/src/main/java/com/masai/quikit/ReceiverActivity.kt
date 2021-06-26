@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import android.util.Patterns
 import androidx.lifecycle.ViewModelProvider
 import com.masai.quikit.ui.home.HomeViewModel
 
@@ -37,7 +38,9 @@ class ReceiverActivity : AppCompatActivity() {
         intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
             // Update UI to reflect text being shared
             Log.d("TAG", "text: "+it)
-            homeViewModel.insertDetailsToDB(it)
+            //homeViewModel.insertDetailsToDB(it)
+            val link = it.split(" ").firstOrNull(){ it -> Patterns.WEB_URL.matcher(it).find()}
+            homeViewModel.insertLinktoDB(it,link)
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
 

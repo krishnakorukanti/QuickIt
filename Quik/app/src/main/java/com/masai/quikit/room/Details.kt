@@ -13,8 +13,10 @@ data class Details(
     val content : String?=null,
 
     @ColumnInfo(name="flag")
-    val flag: Boolean =false
+    val flag: Boolean =false,
 
+    @ColumnInfo(name = "link")
+    val link: String?=null
 
 //
 //    @ColumnInfo(name = "image")

@@ -33,6 +33,11 @@ class HomeViewModel(application : Application) :AndroidViewModel(application) {
             Log.d("TAG", "deleteDetails: "+id)
         }
     }
+    fun insertLinktoDB(content : String?=null,link : String?=null){
+        CoroutineScope(Dispatchers.IO).launch {
+            DetailsDatabase.getInstance(getApplication()).detailsDao.insertDetails(Details(content=content,link=link))
+        }
+    }
 
 
     fun getAllDetails(): LiveData<List<Details>>{
