@@ -23,9 +23,11 @@
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/light_blue_200"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rectangle_bg1"
         android:layout_gravity="center"
-        android:text="Search" />
+        android:text="Search"
+        android:textColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecyclerView"
