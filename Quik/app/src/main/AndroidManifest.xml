@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuikIt">
-        <activity android:name=".ReceiverActivity">
+        <activity android:name=".ReceiverActivity"
+            android:label="Quick Save"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -48,7 +50,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="QuickIt"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
