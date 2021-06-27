@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-
     android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.nguyencse.URLEmbeddedView
@@ -10,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Title"
+
         android:background="@android:color/transparent"
         android:layout_below="@id/imageURLEmd"
         app:description="Description"
