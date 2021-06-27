@@ -1,5 +1,7 @@
 package com.masai.quikit.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,11 @@ class DetailsAdapter(
     override fun onBindViewHolder(holder: DetailsViewHolder, position: Int) {
        val details = detailsList[position]
         holder.setData(details)
+        holder.itemView.setOnClickListener {
+            val shareIntent = Intent( Intent.ACTION_VIEW, Uri.parse(details.content))
+            holder.itemView.context.startActivity(shareIntent)
+
+        }
     }
 
     override fun getItemCount(): Int {

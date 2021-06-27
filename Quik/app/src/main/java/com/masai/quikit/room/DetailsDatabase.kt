@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Details::class],version = 1,exportSchema = false)
+@Database(entities = [Details::class],version = 4,exportSchema = false)
 abstract class DetailsDatabase : RoomDatabase() {
 
     abstract val detailsDao : DetailsDao
@@ -15,13 +15,16 @@ abstract class DetailsDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): DetailsDatabase {
             synchronized(this) {
-                var instance = INSTANCE
-                if (instance == null) {
-                    instance =
-                        Room.databaseBuilder(context, DetailsDatabase::class.java, "Details_DB").build()
-                    INSTANCE = instance
+
+                if (INSTANCE==null){
+                    val builder= Room.databaseBuilder(context.applicationContext,DetailsDatabase::class.java,"database_Details")
+                    builder.fallbackToDestructiveMigration()
+                    return builder.build()
+                    return INSTANCE!!
+                }else{
+                    return INSTANCE!!
                 }
-                return instance
+
             }
         }
     }

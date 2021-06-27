@@ -7,12 +7,24 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "DetailsTable")
 data class Details(
+
+
+    @ColumnInfo(name = "content")
+    val content : String?=null,
+
+    @ColumnInfo(name="flag")
+    val flag: Boolean =false,
+
+    @ColumnInfo(name = "link")
+    val link: String?=null
+
+//
+//    @ColumnInfo(name = "image")
+//    val image : Uri? =null
+){
     @PrimaryKey(autoGenerate = true)
-    var detailsId : Int =0,
+    var detailsId : Int =0
+}
 
-    @ColumnInfo(name = "Content")
-    val content : String,
 
-    @ColumnInfo(name = "image")
-    val image : Uri
-)
+

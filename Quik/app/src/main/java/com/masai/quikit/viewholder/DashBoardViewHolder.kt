@@ -10,20 +10,17 @@ import com.masai.quikit.interfaces.RecyclerClickListener
 import com.masai.quikit.room.Details
 import com.nguyencse.URLEmbeddedData
 import com.nguyencse.URLEmbeddedView
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
+import com.overflowarchives.linkpreview.TelegramPreview
+import com.overflowarchives.linkpreview.ViewListener
 
 
-class DetailsViewHolder(
+class DashBoardViewHolder(
     private val view: View,
-    private val listener: RecyclerClickListener
 ) : RecyclerView.ViewHolder(view) {
-    private val TAG = "DetailsViewHolder"
-    fun setData(details: Details) {
+
+    fun setData(details: Details){
         view.apply {
-            val urlEmbeddedView: URLEmbeddedView = findViewById(R.id.uev)
-            val imageView : ImageView = findViewById(R.id.imageURLEmd)
+            val urlEmbeddedView: URLEmbeddedView = findViewById(R.id.uevDash)
             urlEmbeddedView.setURL(details.link, object : URLEmbeddedView.OnLoadURLListener {
                 override fun onLoadURLCompleted(data: URLEmbeddedData?) {
                     urlEmbeddedView.title(data?.getTitle());
@@ -31,17 +28,9 @@ class DetailsViewHolder(
                     urlEmbeddedView.host(data?.getHost());
                     urlEmbeddedView.thumbnail(data?.getThumbnailURL());
                     urlEmbeddedView.favor(data?.getFavorURL());
-                    Glide.with(imageView).load(data?.getThumbnailURL()).into(imageView)
-                    imageView.visibility = View.VISIBLE
                 }
 
             })
-
-
-
-
-
-
         }
     }
 }
