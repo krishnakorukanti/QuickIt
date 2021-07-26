@@ -8,3 +8,7 @@ In this project we have used the following tech stack.
 - Livedata: [Livedata](https://developer.android.com/topic/libraries/architecture/livedata)
 - Android: [Android](https://developer.android.com/docs)
 
+# Libraries Used 📲
+
+
+
